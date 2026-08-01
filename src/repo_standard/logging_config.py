@@ -9,7 +9,7 @@ from typing import Any
 _SENSITIVE = re.compile(
     r"(?i)(authorization|password|passwd|secret|token|api[_-]?key)\s*[:=]\s*([^\s,;]+)"
 )
-_RESERVED = set(logging.LogRecord(None, 0, "", 0, "", (), None).__dict__)
+_RESERVED = set(logging.LogRecord("", 0, "", 0, "", (), None).__dict__)
 
 
 class RedactingFilter(logging.Filter):
