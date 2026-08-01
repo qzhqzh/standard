@@ -1,0 +1,46 @@
+name: Bootstrap reference tree
+
+on:
+  push:
+    branches: [agent/open-source-standard]
+    paths: [.github/workflows/bootstrap.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    name: Expand and validate reference project
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout staging branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Verify and expand archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .bootstrap/standard.part.* | base64 --decode > /tmp/standard.tar.gz
+          echo "264941c8a7a6db496a82cefac462fa58e50b266066cd1ca87ccecebe7e0180c4  /tmp/standard.tar.gz" | sha256sum --check --strict
+          tar --extract --gzip --file /tmp/standard.tar.gz --no-same-owner
+          rm -f .gitkeep
+          rm -rf .bootstrap .github/workflows/bootstrap.yml
+
+      - name: Validate project
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=src python -m unittest discover -s tests -v
+          PYTHONPATH=src python -m repo_standard check . --policy standard.toml --fail-level optional
+          python -m compileall -q src tests
+
+      - name: Commit reference project
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit -m "feat: add open-source reference standard"
+          git push origin HEAD:agent/open-source-standard
