@@ -35,7 +35,7 @@ class ScanReport:
 
 def _matches(root: Path, pattern: str) -> tuple[str, ...]:
     if any(character in pattern for character in "*?["):
-        candidates = root.glob(pattern)
+        candidates = tuple(root.glob(pattern))
     else:
         candidate = root / pattern
         candidates = (candidate,) if candidate.exists() else ()
