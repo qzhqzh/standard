@@ -1,0 +1,272 @@
+schema_version = 1
+name = "Repo Standard open-source baseline"
+
+[[rules]]
+id = "readme"
+title = "README and project identity"
+level = "required"
+mode = "any"
+paths = ["README.md", "README.rst", "README.txt"]
+rationale = "Users must be able to identify, install, and evaluate the project."
+remediation = "Add a README with purpose, status, installation, usage, compatibility, support, security, contribution, and license links."
+
+[[rules]]
+id = "license"
+title = "Open-source license"
+level = "required"
+mode = "any"
+paths = ["LICENSE", "LICENSE.md", "LICENSE.txt", "COPYING"]
+rationale = "Source code without an explicit license cannot be safely reused or contributed to."
+remediation = "Choose an OSI-approved license and add its full canonical text."
+
+[[rules]]
+id = "security-policy"
+title = "Coordinated vulnerability disclosure"
+level = "required"
+mode = "any"
+paths = ["SECURITY.md", ".github/SECURITY.md", "docs/SECURITY.md"]
+rationale = "Researchers need a private reporting path and supported-version policy."
+remediation = "Add SECURITY.md and enable GitHub private vulnerability reporting."
+
+[[rules]]
+id = "contributing"
+title = "Contribution guide"
+level = "required"
+mode = "any"
+paths = ["CONTRIBUTING.md", ".github/CONTRIBUTING.md", "docs/CONTRIBUTING.md"]
+rationale = "Contributors need setup, test, review, and submission expectations."
+remediation = "Add CONTRIBUTING.md with local setup, tests, commits, pull requests, and security handling."
+
+[[rules]]
+id = "code-of-conduct"
+title = "Code of conduct"
+level = "required"
+mode = "any"
+paths = ["CODE_OF_CONDUCT.md", ".github/CODE_OF_CONDUCT.md", "docs/CODE_OF_CONDUCT.md"]
+rationale = "A participation policy sets behavior expectations and enforcement paths."
+remediation = "Adopt and customize a recognized code of conduct."
+
+[[rules]]
+id = "project-manifest"
+title = "Machine-readable project manifest"
+level = "required"
+mode = "any"
+paths = ["pyproject.toml", "package.json", "go.mod", "Cargo.toml", "pom.xml", "build.gradle", "build.gradle.kts", "*.csproj"]
+rationale = "Build and dependency metadata should be explicit and automatable."
+remediation = "Add the canonical manifest for the project ecosystem."
+
+[[rules]]
+id = "tests"
+title = "Automated tests"
+level = "required"
+mode = "any"
+paths = ["tests", "test", "src/test", "__tests__"]
+rationale = "Automated tests are the minimum executable evidence for change safety."
+remediation = "Add a test suite and document how to run it."
+
+[[rules]]
+id = "ci"
+title = "Continuous integration"
+level = "required"
+mode = "any"
+paths = [".github/workflows/ci.yml", ".github/workflows/ci.yaml", ".gitlab-ci.yml", "Jenkinsfile"]
+rationale = "Every contribution should receive repeatable automated validation."
+remediation = "Add least-privilege CI for formatting, linting, tests, and build validation."
+
+[[rules]]
+id = "changelog"
+title = "Human-readable changelog"
+level = "recommended"
+mode = "any"
+paths = ["CHANGELOG.md", "HISTORY.md", "NEWS.md"]
+rationale = "Users need a durable record of notable changes outside vendor-specific release pages."
+remediation = "Maintain an Unreleased section and one entry per release."
+
+[[rules]]
+id = "support"
+title = "Support policy"
+level = "recommended"
+mode = "any"
+paths = ["SUPPORT.md", ".github/SUPPORT.md", "docs/SUPPORT.md"]
+rationale = "Support routes and boundaries reduce issue noise and unsafe disclosure."
+remediation = "Document where to ask questions, report bugs, and request security help."
+
+[[rules]]
+id = "governance"
+title = "Governance and maintainers"
+level = "recommended"
+mode = "all"
+paths = ["GOVERNANCE.md", "MAINTAINERS.md"]
+rationale = "Authority, decision processes, access, and succession should be visible."
+remediation = "Document roles, decision rights, maintainer admission/removal, and succession."
+
+[[rules]]
+id = "issue-forms"
+title = "Structured issue intake"
+level = "recommended"
+mode = "any"
+paths = [".github/ISSUE_TEMPLATE/*.yml", ".github/ISSUE_TEMPLATE/*.yaml", ".github/ISSUE_TEMPLATE/*.md"]
+rationale = "Structured reports improve reproducibility and triage quality."
+remediation = "Add bug and feature issue forms plus blank-issue policy."
+
+[[rules]]
+id = "pull-request-template"
+title = "Pull-request checklist"
+level = "recommended"
+mode = "any"
+paths = [".github/PULL_REQUEST_TEMPLATE.md", ".github/pull_request_template.md"]
+rationale = "A standard review packet exposes risk, tests, compatibility, and security impact."
+remediation = "Add a concise pull-request template."
+
+[[rules]]
+id = "codeowners"
+title = "Review ownership"
+level = "recommended"
+mode = "any"
+paths = [".github/CODEOWNERS", "CODEOWNERS", "docs/CODEOWNERS"]
+rationale = "Sensitive and high-impact paths should route to accountable reviewers."
+remediation = "Add CODEOWNERS and enforce code-owner review through a ruleset."
+
+[[rules]]
+id = "dependency-updates"
+title = "Coordinated dependency updates"
+level = "recommended"
+mode = "any"
+paths = [".github/dependabot.yml", "renovate.json", ".renovaterc", ".renovaterc.json"]
+rationale = "Known vulnerabilities and ecosystem drift require a routine update mechanism."
+remediation = "Configure Dependabot or Renovate for packages, actions, and container bases."
+
+[[rules]]
+id = "static-analysis"
+title = "Static security analysis"
+level = "recommended"
+mode = "any"
+paths = [".github/workflows/codeql.yml", ".github/workflows/codeql.yaml"]
+rationale = "Security-relevant coding patterns are difficult to identify consistently by review alone."
+remediation = "Enable CodeQL or an equivalent language-aware scanner."
+
+[[rules]]
+id = "dependency-review"
+title = "Pull-request dependency review"
+level = "recommended"
+mode = "any"
+paths = [".github/workflows/dependency-review.yml", ".github/workflows/dependency-review.yaml"]
+rationale = "Dependency changes should be reviewed for vulnerabilities and license impact before merge."
+remediation = "Run dependency review on pull requests."
+
+[[rules]]
+id = "scorecard"
+title = "OpenSSF Scorecard"
+level = "recommended"
+mode = "any"
+paths = [".github/workflows/scorecard.yml", ".github/workflows/scorecards.yml", ".github/workflows/scorecard.yaml"]
+rationale = "Automated security-health checks expose repository and supply-chain gaps."
+remediation = "Add the official OpenSSF Scorecard workflow and publish SARIF results."
+
+[[rules]]
+id = "architecture"
+title = "Architecture documentation"
+level = "recommended"
+mode = "any"
+paths = ["docs/ARCHITECTURE.md", "ARCHITECTURE.md", "docs/architecture.md"]
+rationale = "Contributors need stable boundaries, data flow, and design rationale."
+remediation = "Document components, trust boundaries, extension points, and non-goals."
+
+[[rules]]
+id = "logging"
+title = "Logging and sensitive-data policy"
+level = "recommended"
+mode = "any"
+paths = ["docs/LOGGING.md", "LOGGING.md"]
+rationale = "Logs must be useful without becoming a credential or privacy leak."
+remediation = "Define levels, schema, correlation, redaction, retention, and audit separation."
+
+[[rules]]
+id = "threat-model"
+title = "Threat model"
+level = "recommended"
+mode = "any"
+paths = ["docs/THREAT_MODEL.md", "THREAT_MODEL.md", "docs/security/THREAT_MODEL.md"]
+rationale = "Security controls should map to assets, actors, entry points, and abuse cases."
+remediation = "Add a lightweight threat model and update it for material architecture changes."
+
+[[rules]]
+id = "release-process"
+title = "Repeatable release process"
+level = "recommended"
+mode = "any"
+paths = ["docs/RELEASE_PROCESS.md", "RELEASING.md", "docs/RELEASING.md"]
+rationale = "Versioning, approval, build, provenance, and rollback steps should not live only in maintainer memory."
+remediation = "Document release preparation, validation, publication, verification, and rollback."
+
+[[rules]]
+id = "citation"
+title = "Citation metadata"
+level = "optional"
+mode = "any"
+paths = ["CITATION.cff"]
+rationale = "Research and engineering users need machine-readable attribution metadata."
+remediation = "Add CITATION.cff for research-facing or widely reused software."
+
+[[rules]]
+id = "container"
+title = "Hardened container example"
+level = "optional"
+mode = "all"
+paths = ["Dockerfile", ".dockerignore"]
+rationale = "Containerized projects should demonstrate minimal context, deterministic installation, and non-root execution."
+remediation = "Add a multi-stage, non-root Dockerfile and a restrictive .dockerignore."
+
+[[rules]]
+id = "editor-baseline"
+title = "Cross-editor text conventions"
+level = "optional"
+mode = "all"
+paths = [".editorconfig", ".gitattributes", ".gitignore"]
+rationale = "Consistent text, line endings, and generated-file exclusions reduce noisy diffs."
+remediation = "Add EditorConfig, Git attributes, and ecosystem-appropriate ignore rules."
+
+[[rules]]
+id = "roadmap"
+title = "Public roadmap and non-goals"
+level = "optional"
+mode = "any"
+paths = ["ROADMAP.md", "docs/ROADMAP.md"]
+rationale = "Intent and non-goals help contributors choose aligned work without implying guarantees."
+remediation = "Add a roadmap that distinguishes intent from commitments."
+
+[[rules]]
+id = "notice"
+title = "Attribution notice"
+level = "optional"
+mode = "any"
+paths = ["NOTICE", "NOTICE.md"]
+rationale = "Some licenses and redistributed components require preserved notices."
+remediation = "Add NOTICE when required by the chosen license or included components."
+
+[[rules]]
+id = "release-provenance"
+title = "Release artifacts and provenance"
+level = "optional"
+mode = "any"
+paths = [".github/workflows/release.yml", ".github/workflows/release.yaml"]
+rationale = "Consumers should be able to link released artifacts to source and build workflow."
+remediation = "Build releases in CI, attest artifacts, and document verification."
+
+[[rules]]
+id = "architecture-decisions"
+title = "Architecture decision records"
+level = "optional"
+mode = "any"
+paths = ["docs/adr/*.md", "docs/decisions/*.md"]
+rationale = "Long-lived trade-offs should remain discoverable after contributors change."
+remediation = "Record consequential decisions as short ADRs."
+
+[[rules]]
+id = "bilingual-readme"
+title = "Localized entry documentation"
+level = "optional"
+mode = "any"
+paths = ["README.zh-CN.md", "README.zh.md", "docs/zh-CN/README.md"]
+rationale = "Projects with a multilingual audience benefit from a maintained localized entry point."
+remediation = "Add a localized README only when the project can keep it synchronized."
