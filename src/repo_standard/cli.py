@@ -3,8 +3,8 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Sequence
 
 from repo_standard.checker import ScanReport, scan_repository
 from repo_standard.logging_config import configure_logging
