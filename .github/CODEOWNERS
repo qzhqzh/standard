@@ -1,0 +1,13 @@
+# Default ownership
+* @qzhqzh
+
+# Security, governance, policy, and release-sensitive paths
+/SECURITY.md @qzhqzh
+/GOVERNANCE.md @qzhqzh
+/MAINTAINERS.md @qzhqzh
+/.github/workflows/ @qzhqzh
+/.github/dependabot.yml @qzhqzh
+/standard.toml @qzhqzh
+/src/repo_standard/default_policy.toml @qzhqzh
+/docs/THREAT_MODEL.md @qzhqzh
+/docs/RELEASE_PROCESS.md @qzhqzh

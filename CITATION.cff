@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use Repo Standard in research or published engineering guidance, please cite this software."
+title: "Repo Standard"
+type: software
+version: 0.1.0
+date-released: 2026-08-01
+url: "https://github.com/qzhqzh/standard"
+repository-code: "https://github.com/qzhqzh/standard"
+license: Apache-2.0
+authors:
+  - name: "qzhqzh"
+keywords:
+  - open-source
+  - repository-governance
+  - software-supply-chain
+  - security
