@@ -11,6 +11,10 @@
 
 [简体中文](README.zh-CN.md) · [Open-source standard](docs/OPEN_SOURCE_STANDARD.md) · [Adoption checklist](docs/ADOPTION_CHECKLIST.md) · [Repository settings](docs/REPOSITORY_SETTINGS.md)
 
+## Star history
+
+[![Star History Chart](https://api.star-history.com/svg?repos=qzhqzh/standard&type=Date)](https://star-history.com/#qzhqzh/standard&Date)
+
 ## Why this repository exists
 
 A serious open-source project is more than source code. Users need to understand it, contributors need a predictable workflow, maintainers need operational boundaries, and downstream consumers need evidence that releases are built and governed responsibly.

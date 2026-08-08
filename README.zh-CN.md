@@ -11,6 +11,10 @@
 
 [English](README.md) · [完整规范](docs/OPEN_SOURCE_STANDARD.md) · [迁移清单](docs/ADOPTION_CHECKLIST.md) · [GitHub 设置](docs/REPOSITORY_SETTINGS.md)
 
+## Star 增长趋势
+
+[![Star History Chart](https://api.star-history.com/svg?repos=qzhqzh/standard&type=Date)](https://star-history.com/#qzhqzh/standard&Date)
+
 ## 这个仓库解决什么问题
 
 热门开源项目真正稳定的地方，不只是代码写得好，而是把“如何使用、如何贡献、谁来维护、如何披露漏洞、如何发布、如何证明制品来源”都变成明确且可自动检查的约定。
