@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM python:3.13-slim AS build
+FROM python:3.14-slim AS build
 
 WORKDIR /build
 COPY pyproject.toml README.md LICENSE ./
@@ -7,7 +7,7 @@ COPY src ./src
 RUN python -m pip install --no-cache-dir --upgrade pip \
     && python -m pip wheel --no-deps --wheel-dir /wheels .
 
-FROM python:3.13-slim AS runtime
+FROM python:3.14-slim AS runtime
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
